@@ -1,6 +1,6 @@
 <script lang="typescript">
     import { InitialStateOptions } from 'src/constants';
-import InitialStatePaths from './initialStatePaths';
+    import InitialStatePaths from './initialStatePaths';
     export let pattern: InitialStateOptions;
     export let title: string;
     export let colors: string[] = [];
@@ -15,3 +15,10 @@ import InitialStatePaths from './initialStatePaths';
       {/each}
   </svg>
 </div>
+
+<style>
+    div {
+        width: 30px;
+        height: 30px;
+    }
+</style>
