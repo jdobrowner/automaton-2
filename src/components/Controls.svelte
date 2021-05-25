@@ -1,5 +1,8 @@
 <script>
+import { InitialStateOptions } from 'src/constants';
+
   import { colors } from '../stores/SettingsStores';
+import InitialStateButton from './initialStateButton/InitialStateButton.svelte';
 
   let minimized = false;
 </script>
@@ -13,6 +16,14 @@
   <div class="overflow-hidden">
     <div class="subcontainer">
       <h3>initial state</h3>
+      <div class="initial-states">
+        <InitialStateButton pattern={InitialStateOptions.LITTLE_TRIANGLE} />
+        <InitialStateButton pattern={InitialStateOptions.NESTED_TRIANGLE} />
+        <InitialStateButton pattern={InitialStateOptions.HEXAGON} />
+        <InitialStateButton pattern={InitialStateOptions.BORDER} />
+        <InitialStateButton pattern={InitialStateOptions.FACE} />
+        <InitialStateButton pattern={InitialStateOptions.TRIFORCE} />
+      </div>
       <h3>ruleset</h3>
       <h3>speed</h3>
       <h3>randomness</h3>
@@ -55,5 +66,10 @@
     transform: rotate(0deg);
     transition: 0.6s;
     cursor: pointer;
+  }
+  .initial-states {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 30px 30px 30px;
   }
 </style>

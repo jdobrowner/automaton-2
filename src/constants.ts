@@ -3,6 +3,7 @@ export enum InitialStateOptions {
   NESTED_TRIANGLE,
   HEXAGON,
   BORDER,
+  FACE,
   TRIFORCE,
 }
 
