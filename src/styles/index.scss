@@ -1,4 +1,4 @@
-@import "./reset.scss";
+@import './reset.scss';
 
 html,
 body {
@@ -8,11 +8,14 @@ body {
 }
 
 body {
-  font-family: "Roboto Slab", serif;
+  font-family: 'Muli', sans-serif;
+  font-size: 14;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 h3 {
-  font-family: "Muli", sans-serif;
+  font-family: 'Roboto Slab', serif;
   font-size: 18px;
   font-weight: 300;
   padding: 20px 0;
