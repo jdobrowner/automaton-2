@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
     import { colors, initialState } from '../../stores/SettingsStores';
     import { InitialStateOptions } from 'src/constants';
     import InitialStatePaths from './initialStatePaths';
@@ -6,15 +6,14 @@
     export let title: string;
     let patternPaths: string[] = InitialStatePaths[pattern];
     let isSelected;
-    // $: {
-    //   isSelected = pattern === initialState;
-    // }
+
+    $: isSelected = pattern === $initialState;
 </script>
 
-<div {title} onClick={() => {}} style="background-color={isSelected ? $colors[2] : $colors[0]}">
-    <svg viewBox="0 0 35 35">
+<div {title} on:click={() => initialState.set(pattern)} style="background-color:{isSelected ? $colors[2] : $colors[0]}">
+  <svg viewBox="0 0 35 35">
       {#each patternPaths as pPath}
-        <path d={pPath} stroke={colors[3]} stroke-width="2" fill="none" />
+        <path d={pPath} stroke={$colors[3]} stroke-width="2" fill="none" />
       {/each}
   </svg>
 </div>
@@ -23,5 +22,6 @@
     div {
         width: 30px;
         height: 30px;
+        cursor: pointer;
     }
 </style>
