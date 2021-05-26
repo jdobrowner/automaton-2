@@ -1,11 +1,10 @@
 <script lang="ts">
-  import { InitialStateOptions } from 'src/constants';
-  import { colors, cellStates } from '../stores/SettingsStores';
+  import { InitialStateOptions, Rulesets } from 'src/constants';
+  import { colors, cellStates, ruleset } from '../stores/SettingsStores';
   import InitialStateButton from './initialStateButton/InitialStateButton.svelte';
   import TextButton from './TextButton.svelte';
 
   let minimized = false;
-  const selectCellStates = (num: number) => cellStates.set(num);
 </script>
 
 <div class="container" class:minimized style="background-color:{$colors[1]};color:{$colors[3]}">
@@ -23,10 +22,10 @@
       <!-- Cell States -->
       <h3>cell states</h3>
       <div class="cell-states">
-        <TextButton text="4" onClick={() => selectCellStates(4)} selected={$cellStates === 4} />
-        <TextButton text="5" onClick={() => selectCellStates(5)} selected={$cellStates === 5} />
-        <TextButton text="6" onClick={() => selectCellStates(6)} selected={$cellStates === 6} />
-        <TextButton text="7" onClick={() => selectCellStates(7)} selected={$cellStates === 7} />
+        <TextButton text="4" onClick={() => cellStates.set(4)} selected={$cellStates === 4} />
+        <TextButton text="5" onClick={() => cellStates.set(5)} selected={$cellStates === 5} />
+        <TextButton text="6" onClick={() => cellStates.set(6)} selected={$cellStates === 6} />
+        <TextButton text="7" onClick={() => cellStates.set(7)} selected={$cellStates === 7} />
       </div>
 
       <!-- Initial State -->
@@ -42,6 +41,43 @@
 
       <!-- Ruleset -->
       <h3>ruleset</h3>
+      <div class="ruleset">
+        <TextButton
+          text="expander"
+          onClick={() => ruleset.set(Rulesets.EXPANDER)}
+          selected={$ruleset === Rulesets.EXPANDER}
+        />
+        <TextButton
+          text="harmony"
+          onClick={() => ruleset.set(Rulesets.HARMONY)}
+          selected={$ruleset === Rulesets.HARMONY}
+        />
+        <TextButton
+          text="mangler"
+          onClick={() => ruleset.set(Rulesets.MANGLER)}
+          selected={$ruleset === Rulesets.MANGLER}
+        />
+        <TextButton
+          text="swirls"
+          onClick={() => ruleset.set(Rulesets.SWIRLS)}
+          selected={$ruleset === Rulesets.SWIRLS}
+        />
+        <TextButton
+          text="birds"
+          onClick={() => ruleset.set(Rulesets.BIRDS)}
+          selected={$ruleset === Rulesets.BIRDS}
+        />
+        <TextButton
+          text="horizons"
+          onClick={() => ruleset.set(Rulesets.HORIZONS)}
+          selected={$ruleset === Rulesets.HORIZONS}
+        />
+        <TextButton
+          text="billow"
+          onClick={() => ruleset.set(Rulesets.BILLOW)}
+          selected={$ruleset === Rulesets.BILLOW}
+        />
+      </div>
 
       <!-- Speed -->
       <h3>speed</h3>
@@ -90,14 +126,20 @@
     transition: 0.6s;
     cursor: pointer;
   }
-  .initial-states {
+  .initial-states,
+  .cell-states,
+  .ruleset,
+  .colors {
     display: grid;
     gap: 15px;
+  }
+  .initial-states {
     grid-template-columns: 30px 30px 30px;
   }
   .cell-states {
-    display: grid;
-    gap: 15px;
     grid-template-columns: 30px 30px 30px 30px;
+  }
+  .ruleset {
+    grid-template-columns: 1fr 1fr;
   }
 </style>
