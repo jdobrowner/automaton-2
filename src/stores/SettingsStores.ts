@@ -4,9 +4,9 @@ import {
   RandomnessStates,
   Rulesets,
   Speeds,
-} from "src/constants";
-import Colors from "../colors";
-import { writable } from "svelte/store";
+} from 'src/constants';
+import Colors from '../colors';
+import { writable } from 'svelte/store';
 
 export const colors = writable(Colors[ColorThemeNames.SOUTHWEST]);
 

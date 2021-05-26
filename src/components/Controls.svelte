@@ -1,14 +1,18 @@
 <script>
-import { InitialStateOptions } from 'src/constants';
+  import { InitialStateOptions } from 'src/constants';
 
   import { colors } from '../stores/SettingsStores';
-import InitialStateButton from './initialStateButton/InitialStateButton.svelte';
+  import InitialStateButton from './initialStateButton/InitialStateButton.svelte';
 
   let minimized = false;
 </script>
 
 <div class="container" class:minimized style="background-color:{$colors[1]};color:{$colors[3]}">
-  <div class="triangle-container" on:click={() => (minimized = !minimized)} style="background-color:{$colors[0]}">
+  <div
+    class="triangle-container"
+    on:click={() => (minimized = !minimized)}
+    style="background-color:{$colors[0]}"
+  >
     <svg height="20" width="20">
       <path d="M18 2 L2 10 L18 18 Z" fill={$colors[2]} />
     </svg>
@@ -29,7 +33,7 @@ import InitialStateButton from './initialStateButton/InitialStateButton.svelte';
       <h3>randomness</h3>
       <h3>color</h3>
     </div>
-</div>
+  </div>
 </div>
 
 <style lang="scss">
