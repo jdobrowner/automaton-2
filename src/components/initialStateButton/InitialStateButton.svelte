@@ -11,6 +11,7 @@
 </script>
 
 <div
+  class="transition"
   {title}
   on:click={() => initialState.set(pattern)}
   style="background-color:{isSelected ? $colors[2] : $colors[0]}"

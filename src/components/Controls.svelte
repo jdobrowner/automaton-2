@@ -1,13 +1,19 @@
 <script lang="ts">
-  import { InitialStateOptions, Rulesets } from 'src/constants';
+  import { ColorThemeNames, InitialStateOptions, Rulesets } from 'src/constants';
   import { colors, cellStates, ruleset } from '../stores/SettingsStores';
+  import ColorSwatch from './ColorSwatch.svelte';
   import InitialStateButton from './initialStateButton/InitialStateButton.svelte';
   import TextButton from './TextButton.svelte';
+  import ColorThemes from '../colors';
 
   let minimized = false;
 </script>
 
-<div class="container" class:minimized style="background-color:{$colors[1]};color:{$colors[3]}">
+<div
+  class="container transition"
+  class:minimized
+  style="background-color:{$colors[1]};color:{$colors[3]}"
+>
   <div
     class="triangle-container"
     on:click={() => (minimized = !minimized)}
@@ -79,14 +85,22 @@
         />
       </div>
 
+      <!-- Color -->
+      <h3>color</h3>
+      <div class="color">
+        <ColorSwatch theme={ColorThemeNames.SOUTHWEST} />
+        <ColorSwatch theme={ColorThemeNames.BRIGHTS} />
+        <ColorSwatch theme={ColorThemeNames.OCEAN} />
+        <ColorSwatch theme={ColorThemeNames.RED} />
+        <ColorSwatch theme={ColorThemeNames.GREEN} />
+        <ColorSwatch theme={ColorThemeNames.PURPLE} />
+      </div>
+
       <!-- Speed -->
       <h3>speed</h3>
 
       <!-- Randomness -->
       <h3>randomness</h3>
-
-      <!-- Color -->
-      <h3>color</h3>
     </div>
   </div>
 </div>
@@ -96,8 +110,6 @@
     position: relative;
     height: 100%;
     width: 220px;
-    transition: width 0.6s ease;
-    // overflow: hidden;
   }
   .minimized {
     width: 0;
@@ -113,6 +125,9 @@
     width: 220px;
     padding: 20px;
     padding-top: 40px;
+    overflow-y: scroll;
+    height: 100vh;
+    max-height: 100vh;
   }
   .triangle-container {
     position: absolute;
@@ -129,11 +144,12 @@
   .initial-states,
   .cell-states,
   .ruleset,
-  .colors {
+  .color {
     display: grid;
     gap: 15px;
   }
-  .initial-states {
+  .initial-states,
+  .color {
     grid-template-columns: 30px 30px 30px;
   }
   .cell-states {

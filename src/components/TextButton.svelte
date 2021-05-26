@@ -7,6 +7,7 @@
 
 <div
   on:click={onClick}
+  class="transition"
   class:selected
   style="background-color:{selected ? $colors[2] : $colors[0]}"
 >

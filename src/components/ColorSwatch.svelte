@@ -1,20 +1,24 @@
 <script>
-  export let colors;
+  import { colors as colorsStore } from '../stores/SettingsStores';
+  import ColorThemes from '../colors';
+  export let theme;
+  let colors = ColorThemes[theme];
 </script>
 
-<div class="container" onClick={() => {}}>
-  <div class="color-sample" style={{ backgroundColor: colors[0] }} />
-  <div class="color-sample" style={{ backgroundColor: colors[1] }} />
-  <div class="color-sample" style={{ backgroundColor: colors[2] }} />
-  <div class="color-sample" style={{ backgroundColor: colors[3] }} />
+<div class="container" on:click={() => colorsStore.set(colors)}>
+  <div class="color-sample" style="background-color:{colors[0]}" />
+  <div class="color-sample" style="background-color:{colors[1]}" />
+  <div class="color-sample" style="background-color:{colors[2]}" />
+  <div class="color-sample" style="background-color:{colors[3]}" />
 </div>
 
 <style>
   .container {
+    width: 100%;
     display: grid;
     cursor: pointer;
-    grid-template-columns: 12px 12px;
-    grid-template-rows: 12px 12px;
+    grid-template-columns: 15px 15px;
+    grid-template-rows: 15px 15px;
   }
   .color-sample {
     width: 100%;
