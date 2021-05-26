@@ -17,7 +17,7 @@
 >
   <svg viewBox="0 0 35 35">
     {#each patternPaths as pPath}
-      <path d={pPath} stroke={$colors[3]} stroke-width="2" fill="none" />
+      <path d={pPath} stroke={isSelected ? $colors[0] : $colors[3]} stroke-width="2" fill="none" />
     {/each}
   </svg>
 </div>

@@ -17,3 +17,5 @@ export const randomness = writable(RandomnessStates.OFF);
 export const ruleset = writable(Rulesets.EXPANDER);
 
 export const speed = writable(Speeds.MEDIUM);
+
+export const cellStates = writable(4);
