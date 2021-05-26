@@ -88,12 +88,18 @@
       <!-- Color -->
       <h3>color</h3>
       <div class="color">
-        <ColorSwatch theme={ColorThemeNames.SOUTHWEST} />
-        <ColorSwatch theme={ColorThemeNames.BRIGHTS} />
-        <ColorSwatch theme={ColorThemeNames.OCEAN} />
-        <ColorSwatch theme={ColorThemeNames.RED} />
-        <ColorSwatch theme={ColorThemeNames.GREEN} />
-        <ColorSwatch theme={ColorThemeNames.PURPLE} />
+        <div class="color-row">
+          <ColorSwatch theme={ColorThemeNames.SOUTHWEST} />
+          <ColorSwatch theme={ColorThemeNames.BRIGHTS} />
+        </div>
+        <div class="color-row">
+          <ColorSwatch theme={ColorThemeNames.OCEAN} />
+          <ColorSwatch theme={ColorThemeNames.RED} />
+        </div>
+        <div class="color-row">
+          <ColorSwatch theme={ColorThemeNames.GREEN} />
+          <ColorSwatch theme={ColorThemeNames.PURPLE} />
+        </div>
       </div>
 
       <!-- Speed -->
@@ -148,8 +154,7 @@
     display: grid;
     gap: 15px;
   }
-  .initial-states,
-  .color {
+  .initial-states {
     grid-template-columns: 30px 30px 30px;
   }
   .cell-states {
@@ -157,5 +162,11 @@
   }
   .ruleset {
     grid-template-columns: 1fr 1fr;
+  }
+  .color {
+    justify-content: flex-start;
+    .color-row {
+      display: flex;
+    }
   }
 </style>
