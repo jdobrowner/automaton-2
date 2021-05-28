@@ -1,3 +1,5 @@
+export const size = 64;
+
 export enum InitialStateOptions {
   LITTLE_TRIANGLE,
   NESTED_TRIANGLE,
